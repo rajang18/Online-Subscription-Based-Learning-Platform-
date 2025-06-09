@@ -1,0 +1,43 @@
+<div *ngIf="course" class="container py-5">
+  <div class="card shadow-sm border-0" style="background-color: #f9fbff; border-left: 5px solid #0d6efd;">
+    <div class="card-body">
+      <!-- Title and Description -->
+      <h2 class="fw-bold mb-3 text-primary">{{ course.title }}</h2>
+      <p class="text-muted fs-5">{{ course.description }}</p>
+
+      <!-- Info Grid -->
+      <div class="row row-cols-1 row-cols-md-2 g-3 mt-4">
+        <div class="col">
+          <p class="mb-1"><strong class="text-dark">👨‍🏫 Instructor:</strong> {{ course.instructor || 'N/A' }}</p>
+        </div>
+        <div class="col">
+          <p class="mb-1"><strong class="text-dark">⏱️ Duration:</strong> {{ course.duration || 'N/A' }} hours</p>
+        </div>
+        <div class="col">
+          <p class="mb-1"><strong class="text-dark">⭐ Rating:</strong> {{ course.rating || 0 }}★</p>
+        </div>
+        <div class="col">
+          <p class="mb-1"><strong class="text-dark">💰 Price:</strong> ₹{{ course.price || 0 }}</p>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="mt-4 d-flex flex-wrap gap-2">
+        <button class="btn btn-success px-4" (click)="addToCart()">
+          <i class="bi bi-cart-plus"></i> Put in Cart
+        </button>
+        <button class="btn btn-outline-secondary px-4" (click)="goBack()">
+          <i class="bi bi-arrow-left"></i> Back
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Fallback while loading -->
+<div *ngIf="!course" class="text-center mt-5">
+  <div class="spinner-border text-primary mb-3" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p class="text-muted">Loading course details...</p>
+</div>

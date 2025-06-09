@@ -1,0 +1,83 @@
+<ng-container *ngIf="visible">
+  <div class="modal-overlay" (click)="close()"></div>
+
+  <div class="login-modal" role="dialog" aria-modal="true" aria-labelledby="login-title">
+    <!-- Header -->
+    <div class="modal-header d-flex justify-content-between align-items-center">
+      <h3 id="login-title">Welcome Back</h3>
+      <button class="close-btn" aria-label="Close" (click)="close()">&times;</button>
+    </div>
+
+    <!-- Subtitle -->
+    <p class="modal-subtitle">Sign in to continue learning</p>
+
+    <!-- Role Tabs -->
+    <div class="role-tabs d-flex justify-content-center my-3">
+      <button
+        class="role-tab"
+        [ngClass]="{ active: selectedRole === 'student' }"
+        (click)="selectRole('student')">
+        🎓 Student
+      </button>
+      <button
+        class="role-tab"
+        [ngClass]="{ active: selectedRole === 'admin' }"
+        (click)="selectRole('admin')">
+        ⚙️ Admin
+      </button>
+    </div>
+
+    <!-- Login Form -->
+    <form (ngSubmit)="login()" [formGroup]="loginForm" class="px-3">
+      <!-- Email Field -->
+      <div class="form-group mb-3">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          formControlName="email"
+          type="email"
+          placeholder="Enter your email"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': loginForm.get('email')?.invalid && loginForm.get('email')?.touched }"
+        />
+        <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="text-danger small mt-1">
+          <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</div>
+          <div *ngIf="loginForm.get('email')?.errors?.['email']">Please enter a valid email.</div>
+        </div>
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-group mb-4">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          formControlName="password"
+          type="password"
+          placeholder="Enter your password"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': loginForm.get('password')?.invalid && loginForm.get('password')?.touched }"
+        />
+        <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="text-danger small mt-1">
+          <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="btn w-100 text-white fw-semibold"
+        [ngClass]="{
+          'btn-student': selectedRole === 'student',
+          'btn-admin': selectedRole === 'admin'
+        }">
+        {{ selectedRole === 'student' ? 'Sign In as Student' : 'Sign In as Admin' }}
+      </button>
+    </form>
+
+    <!-- Sign-up link only for students -->
+    <p *ngIf="selectedRole === 'student'" class="signup-link mt-3 text-center">
+      Don't have an account?
+      <a href="#" (click)="redirectToSignup($event)">Sign up</a>
+    </p>
+  </div>
+</ng-container>

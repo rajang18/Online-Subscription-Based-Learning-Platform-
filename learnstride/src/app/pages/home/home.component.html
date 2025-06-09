@@ -1,0 +1,16 @@
+
+
+<app-header (signInClicked)="openLoginModal()"></app-header>
+<app-hero (loginClick)="openLoginModal()"></app-hero>
+
+<app-stats></app-stats>
+<app-categories></app-categories>
+<app-featured-courses (loginClick)="openLoginModal()"></app-featured-courses>
+<app-footer-cta (loginClick)="openLoginModal()"></app-footer-cta>
+
+<app-login-modal 
+  [visible]="loginModelVisible"
+  (closed)="loginModelVisible = false">
+</app-login-modal>
+
+

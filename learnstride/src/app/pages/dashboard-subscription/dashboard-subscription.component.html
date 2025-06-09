@@ -1,0 +1,32 @@
+<div class="card shadow-sm p-4 mb-4">
+  <h5 class="text-primary mb-3">Current Course Subscription</h5>
+
+  <span class="badge bg-success mb-2">{{ subscription?.status }}</span>
+  <h4 class="fw-bold">{{ subscription?.courseName }}</h4>
+ 
+
+  <div class="mb-2">
+    
+
+
+    <strong>Started:</strong> {{ subscription?.startDate | date: 'yyyy-MM-dd' }}<br />
+    <strong>Ends on:</strong> {{ subscription?.endDate | date: 'yyyy-MM-dd' }}<br />
+  </div>
+
+  
+
+  <div class="d-flex gap-2 mb-4">
+    <button class="btn btn-outline-primary w-100" (click)="extendSubscription()">🔁 Extend</button>
+    <button class="btn btn-outline-danger w-100" (click)="cancelSubscription()">❌ Cancel</button>
+  </div>
+
+  <hr />
+
+  <h5 class="text-primary">Redeem Code</h5>
+  <p class="text-muted">Have a promo code for this course? Redeem it here</p>
+
+  <label class="form-label">Promo Code</label>
+  <input type="text" class="form-control mb-3" [(ngModel)]="promoCode" placeholder="Enter your promo code" />
+
+  <button class="btn btn-dark w-100" (click)="redeemCode()">Redeem Code</button>
+</div>

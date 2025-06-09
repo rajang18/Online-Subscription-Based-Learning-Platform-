@@ -1,0 +1,19 @@
+<nav class="navbar navbar-light bg-light px-4">
+  <!-- Left-aligned dynamic platform logo -->
+  <div class="d-flex align-items-center">
+    <i [class]="platformIcon + ' text-primary fs-4 me-2'"></i>
+    <span class="fs-5 fw-bold">{{ platformName }}</span>
+  </div>
+
+  <!-- Right-aligned logout button -->
+  <div class="ms-auto">
+    <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+  </div>
+</nav>
+
+<div class="d-flex">
+  <app-sidebar></app-sidebar>
+  <div class="flex-grow-1 p-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>

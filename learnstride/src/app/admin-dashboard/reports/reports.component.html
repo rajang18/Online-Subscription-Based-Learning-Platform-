@@ -1,0 +1,30 @@
+<!-- 📊 Report Metrics -->
+<div class="row g-4 my-4">
+  <div class="col-md-3" *ngFor="let item of reportMetrics">
+    <div class="card shadow-sm border-0 h-100">
+      <div class="card-body text-center">
+        <div class="fs-2 mb-2 text-primary">
+          <i [class]="item.icon"></i>
+        </div>
+        <h4 class="fw-bold mb-1">{{ item.value }}</h4>
+        <p class="text-muted mb-0">{{ item.label }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 📈 Bar Chart Section -->
+<div class="card shadow-sm border-0 p-4 mt-4">
+  <h5 class="fw-bold mb-3">Platform Metrics Overview</h5>
+  <div class="chart-container" style="position: relative; height: 300px;">
+    <canvas id="reportChart"></canvas>
+  </div>
+</div>
+
+<!-- 🥧 Pie Chart Section -->
+<div class="card shadow-sm border-0 p-4 mt-4 mx-auto" style="max-width: 550px;">
+  <h5 class="fw-bold mb-3 text-center">Subscription Status Distribution</h5>
+  <div class="chart-container" style="position: relative; height: 300px;">
+    <canvas id="subscriptionPieChart"></canvas>
+  </div>
+</div>

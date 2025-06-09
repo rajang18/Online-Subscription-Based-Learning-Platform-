@@ -1,0 +1,37 @@
+<div class="d-flex flex-column flex-shrink-0 bg-light border-end shadow-sm" style="width: 260px; height: 100vh;">
+  <div class="p-3">
+    <h5 class="text-primary mb-4">Student Dashboard</h5>
+    <ul class="nav nav-pills flex-column">
+      <li class="nav-item mb-2">
+        <a (click)="navigateTo('overview')" class="nav-link d-flex align-items-center text-dark" [ngClass]="{'active text-primary fw-bold': isActive('overview')}">
+          <i class="bi bi-house me-2"></i> Profile
+        </a>
+      </li>
+      <li class="nav-item mb-2">
+        <a (click)="navigateTo('courses')" class="nav-link d-flex align-items-center text-dark" [ngClass]="{'active text-primary fw-bold': isActive('courses')}">
+          <i class="bi bi-book me-2"></i> Courses
+        </a>
+      </li>
+      <li class="nav-item mb-2">
+        <a (click)="navigateTo('my-courses')" class="nav-link d-flex align-items-center text-dark" [ngClass]="{'active text-primary fw-bold': isActive('my-courses')}">
+          <i class="bi bi-journal-code me-2"></i> My Courses
+        </a>
+      </li>
+      <li class="nav-item mb-2">
+        <a (click)="navigateTo('subscription')" class="nav-link d-flex align-items-center text-dark" [ngClass]="{'active text-primary fw-bold': isActive('subscription')}">
+          <i class="bi bi-credit-card me-2"></i> Subscription
+        </a>
+      </li>
+      <li class="nav-item mb-2">
+        <a (click)="navigateTo('platform')" class="nav-link d-flex align-items-center text-dark" [ngClass]="{'active text-primary fw-bold': isActive('platform')}">
+          <i class="bi bi-window me-2"></i> Platform
+        </a>
+      </li>
+      <li class="nav-item mb-2">
+        <a (click)="navigateTo('reports')" class="nav-link d-flex align-items-center text-dark" [ngClass]="{'active text-primary fw-bold': isActive('reports')}">
+          <i class="bi bi-bar-chart-line me-2"></i> Reports
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

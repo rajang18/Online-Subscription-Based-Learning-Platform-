@@ -1,0 +1,15 @@
+<section class="py-5 bg-light text-center">
+  <div class="container">
+    <h2 class="mb-4 fw-bold">Explore Course Categories</h2>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-6 col-md-4 col-lg-2" *ngFor="let cat of categories">
+        <div class="category-card p-3 shadow-sm rounded bg-white h-100">
+          <div class="icon mb-2">{{ cat.icon }}</div>
+          <h5 class="mb-1 fw-semibold">{{ cat.title }}</h5>
+          <p class="text-muted small">{{ cat.count }} Courses</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

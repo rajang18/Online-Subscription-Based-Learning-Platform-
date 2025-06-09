@@ -1,0 +1,14 @@
+.nav-link.active {
+  background-color: #1E3A8A;
+  color: #fff !important;
+  border-radius: 8px;
+}
+.text-purple {
+  color: #8B5CF6;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+

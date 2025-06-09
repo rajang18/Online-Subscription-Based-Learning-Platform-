@@ -1,0 +1,12 @@
+.footer-cta {
+  background: linear-gradient(to right, #0d6efd, #6610f2);
+  color: white;
+}
+
+.footer-cta h2 {
+  font-size: 2rem;
+}
+
+.footer-cta p {
+  font-size: 1.1rem;
+}

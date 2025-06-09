@@ -1,0 +1,48 @@
+<div class="container mt-5" style="max-width: 500px;">
+  <h3 class="mb-4 text-center text-primary">Student Registration</h3>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+
+  <form #formRef="ngForm" (ngSubmit)="register()" novalidate>
+    <!-- Full Name -->
+    <div class="mb-3">
+      <label class="form-label">Full Name</label>
+      <input type="text" class="form-control" name="fullName" [(ngModel)]="student.fullName" required #fullName="ngModel" />
+      <small *ngIf="fullName.invalid && fullName.touched" class="text-danger">Full name is required.</small>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" name="email" [(ngModel)]="student.email" required email #email="ngModel" />
+      <small *ngIf="email.invalid && email.touched" class="text-danger">Valid email is required.</small>
+    </div>
+
+    <!-- Password -->
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" [(ngModel)]="student.password" required minlength="6" #password="ngModel" />
+      <small *ngIf="password.invalid && password.touched" class="text-danger">
+        Password is required and must be at least 6 characters.
+      </small>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="mb-3">
+      <label class="form-label">Confirm Password</label>
+      <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="student.confirmPassword" required #confirmPassword="ngModel" />
+      <small *ngIf="confirmPassword.invalid && confirmPassword.touched" class="text-danger">Confirm password is required.</small>
+      <small *ngIf="passwordMismatch" class="text-danger">Passwords do not match.</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100 mb-2" [disabled]="formRef.invalid || passwordMismatch">
+      Register
+    </button>
+
+    <!-- Back Button -->
+    <button type="button" class="btn btn-secondary w-100" (click)="goBack()">
+      ← Back
+    </button>
+  </form>
+</div>

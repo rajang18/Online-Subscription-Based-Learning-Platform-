@@ -1,0 +1,6 @@
+.sidebar-link {
+  @apply flex items-center gap-3 py-3 px-5 rounded-lg text-[#1F2937] hover:bg-gray-100 font-medium;
+}
+.sidebar-link.active {
+  @apply bg-[#1E3A8A] text-white;
+}
